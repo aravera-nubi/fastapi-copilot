@@ -20,10 +20,12 @@ jobs:
 
     - name: Set up virtual environment
       run: |
-        python -m venv venv
-        source venv/bin/activate
+        python -m venv antenv
+        source antenv/bin/activate
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+        echo "The uvicorn version installed is:"
+        uvicorn --version
 
 # Crea un step para subir un artifact con nombre python-app # Con (ctrl + i) + /edit lo toma mejor
     - name: Upload artifact 
@@ -32,7 +34,6 @@ jobs:
         name: python-app
         path: |
           .
-          !venv/
 
   deploy:
     runs-on: ubuntu-latest
@@ -56,4 +57,4 @@ jobs:
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: '.'
-          startup-command: 'gunicorn -k uvicorn.workers.UvicornWorker src.app:app --bind 0.0.0.0:8000'          
+          startup-command: 'gunicorn -w 2 -k uvicorn.workers.UvicornWorker --b 0.0.0.0:8000 src.app:app'          
