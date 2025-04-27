@@ -1,0 +1,35 @@
+name: Build and Deploy to Azure Web App
+
+on:
+  push:
+    branches:
+      - feature/workflows
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.13'
+
+    - name: Set up virtual environment
+      run: |
+        python -m venv venv
+        source venv/bin/activate
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+# Crea un step para subir un artifact con nombre python-app # Con (ctrl + i) + /edit lo toma mejor
+    - name: Upload artifact 
+      uses: actions/upload-artifact@v4      
+      with:
+        name: python-app
+        path: |
+          .
+          !venv/
