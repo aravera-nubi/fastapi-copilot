@@ -158,5 +158,11 @@ Ahora que tenemos el workflow de build creado, vamos a probarlo.
 4. Commit
 5. Selecciona la opción **Sync Changes**
 6. Luego de sincronizar los cambios en el remoto (push), dirígete a la pestaña **Actions** en el repositorio GitHub. Allí podrás ver el workflow que acabas de crear. Haz clic en él para abrirlo.
+7. Hay un error en el job de build. Vamos a pedirle a Copilot que nos explique el error haciendo clic en el ícono "Explain error":
 
-   ![Copilot Chat](assets/github-actions-1.png)
+   ![Copilot Chat](assets/build-error.png)
+8. Una de las sugerencias de Copilot es revisar la versión de la acción, también nos provee un link a la documentación. Vamos a hacer clic en el link para ver si hay una versión más reciente de la acción.
+
+   ![Copilot Chat](assets/build-error-2.png)
+9. En la documentación de la acción, podemos ver que la versión más reciente es `v4`. 
+10. Actualizamos la acción con esta nueva versión y triggereamos nuevamente el workflow.
