@@ -146,9 +146,17 @@ Ahora que tenemos el proyecto corriendo localmente, vamos a crear una nueva rama
 12. Preciona `Tab` para aceptar la sugerencia.
    ![Copilot Chat](assets/artifact.png)
 
-##  Paso 4:  Trigger Workflow - Prueba de Build
+##  Paso 4:  Trigger Workflow y prueba de job "Build"
 Ahora que tenemos el workflow de build creado, vamos a probarlo. 
 
-1. En el panel izquiero de VS Code, selecciona la opción **Source Control** para hacer un commit y subir los cambios a la rama remota.selecciona la opción **Sync Changes** para hacer un commit y subir los cambios a la rama remota.
+1. En el panel izquiero de VS Code, selecciona la opción **Source Control** para hacer un commit y subir los cambios a la rama remota.
 
-   ![Copilot Chat](assets/sync-changes.png)
+   ![Copilot Chat](assets/source-control.png)
+
+2. Add Stage changes “+”
+3. Haz clic en el “Símbolo de estrellas” para generar un commit message con copilot.
+4. Commit
+5. Selecciona la opción **Sync Changes**
+6. Luego de sincronizar los cambios en el remoto (push), dirígete a la pestaña **Actions** en el repositorio GitHub. Allí podrás ver el workflow que acabas de crear. Haz clic en él para abrirlo.
+
+   ![Copilot Chat](assets/github-actions-1.png)
