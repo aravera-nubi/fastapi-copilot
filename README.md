@@ -1,67 +1,3 @@
-# Getting Started with GitHub Copilot
-
-<img src="https://octodex.github.com/images/Professortocat_v2.png" align="right" height="200px" />
-
-Hi!
-
-Ara here. I'm done preparing your exercise. Hope you enjoy! 💚
-
-Remember, it's self-paced so feel fee to take a break! ☕️
-
-[![](https://img.shields.io/badge/Go%20to%20Exercise-%E2%86%92-1f883d?style=for-the-badge&logo=github&labelColor=197935)](https://github.com/aracelivera/skills-getting-started-with-github-copilot/issues/1)
-
-# Nubiral High School Activities API
-
-A super simple FastAPI application that allows students to view and sign up for extracurricular activities.
-
-## Features
-
-- View all available extracurricular activities
-- Sign up for activities
-
-## Getting Started
-
-1. Install the dependencies:
-
-   ```
-   pip install fastapi uvicorn
-   ```
-
-2. Run the application:
-
-   ```
-   python app.py
-   ```
-
-3. Open your browser and go to:
-   - API documentation: http://localhost:8000/docs
-   - Alternative documentation: http://localhost:8000/redoc
-
-## API Endpoints
-
-| Method | Endpoint                                                          | Description                                                         |
-| ------ | ----------------------------------------------------------------- | ------------------------------------------------------------------- |
-| GET    | `/activities`                                                     | Get all activities with their details and current participant count |
-| POST   | `/activities/{activity_name}/signup?email=student@nubiral.edu` | Sign up for an activity                                             |
-
-## Data Model
-
-The application uses a simple data model with meaningful identifiers:
-
-1. **Activities** - Uses activity name as identifier:
-
-   - Description
-   - Schedule
-   - Maximum number of participants allowed
-   - List of student emails who are signed up
-
-2. **Students** - Uses email as identifier:
-   - Name
-   - Grade level
-
-All data is stored in memory, which means data will be reset when the server restarts.
-
-
 # 🚀 Demo: Workflow CI/CD con GitHub Copilot
 
 
@@ -111,7 +47,7 @@ Luego de haber configurado nuestro entorno de desarrollo, usemos Copilot para ap
 <details style="margin-left: 40px;">
 <summary>Ejemplo de respuesta</summary>
 
-Colocar la imágen/ hacer referencia a la captura.
+   ![Copilot-Chat](assets/paso1.webp)
 
 </details > 
 
@@ -149,16 +85,70 @@ Ahora que tenemos el proyecto corriendo localmente, vamos a crear una nueva rama
 4. Ahora, presiona el botón **Run** para que Copilot lo ejecute por nosotros. No es necesario copiar y pegar.
 
 
-##  Paso 3:  Crear carpeta y archivo .yml para el workflow de GitHub Actions
+##  Paso 3:  Crear carpeta y archivo .yml para el workflow con GitHub Actions
 
-posibles prompts
+1. Usando Copilot chat:
 
-Opción A : Usando el chat
+   ```bash
+   @workspace ¿What would be the first step to create a workflow with GitHub Actions?
+   ```
+   Copilot nos sugiere crear una carpeta `.github/workflows` y un archivo `main.yml` dentro de ella. Aceptamos la sugerencia y creamos la carpeta y el archivo.
+      
+   ![Copilot Chat](assets/create-cicd-folder.png)
 
-```bash
-@workspace ¿Cómo creo un workflow de CI/CD con GitHub Actions desde cero para mi aplicación que haga build, test y deploy en Azure App Service?
-```
+2. Abre el archivo recientemete creado cicd.yml.
+3. Posiciona el cursor en la primera línea del archivo y presiona `Ctrl + I` (windows) o `Cmd + I` (mac) para abrir el **Copilot's Inline Chat**.
+4. Escribe el siguiente mensaje para pedirle a Copilot que te ayude a compilar la solución con github actions:
 
-Acá me 
+   ```markdown
+   Create a GitHub Actions workflow that builds this Python application.You should create and activate a virtual environment and Install dependencies from requirements.txt.
+   ```
 
-1. Opción B: Usando chat
+   ![Copilot Chat](assets/copilot-build.png)
+
+5. Copilot sugerirá el código para el workflow. Presiona el botón **Acept** para generarlo. No es necesario copiar y pegar.
+
+6. Ahora vamos a pedirle a Copilot que nos explique el código que generó. Para eso, seleccionas el código y presiona `Ctrl + I` (windows) o `Cmd + I` (mac) para abrir el **Copilot's Inline Chat**. Luego, escribe el siguiente prompt:
+
+   ```markdown
+   /explain
+   ```
+
+   ![Copilot Chat](assets/explain.png)
+
+7. También puedes selleccionar las líneas o proción de código que quieras y la explicará con más detalle. Por ejemplo:
+
+   ![Copilot Chat](assets/explain-trigger.webp)
+
+8.  Dado que la branch del trigger está puesta en main tengo que actualizar a mi rama actual para que se ejecute cuando realice algún cambio sobre esta rama. Entonces ingreso en el inline-chat (el código debe estar seleccionado):
+
+      ```markdown
+      /edit Update branch to feature/copilot-cicd
+      ```
+
+
+      ![Copilot-Chat](assets/edit-branch-2.png)
+
+ 9. Accept
+  
+ 10. Podemos pedirle a Copilot que nos recomiende una versión para Python. Abre el Copilot chat e ingresa el siguiente mensaje:
+
+      ```markdown
+      @workspace Qué versión de python me recomiendas para este proyecto?
+      ```
+   
+      ![Copilot Chat](assets/python-version.png)  
+
+ 11. También podemos darle instrucciones a Copilot por medio de comentarios. por ejemplo:
+      ```yml
+      # "Create a step to upload an artifact named python-app using the current directory (.) as the path."
+      ```
+12. Preciona `Tab` para aceptar la sugerencia.
+   ![Copilot Chat](assets/artifact.png)
+
+##  Paso 4:  Trigger Workflow - Prueba de Build
+Ahora que tenemos el workflow de build creado, vamos a probarlo. 
+
+1. En el panel izquiero de VS Code, selecciona la opción **Source Control** para hacer un commit y subir los cambios a la rama remota.selecciona la opción **Sync Changes** para hacer un commit y subir los cambios a la rama remota.
+
+   ![Copilot Chat](assets/sync-changes.png)
