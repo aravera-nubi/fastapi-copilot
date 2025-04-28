@@ -10,7 +10,7 @@ Remember, it's self-paced so feel fee to take a break! ☕️
 
 [![](https://img.shields.io/badge/Go%20to%20Exercise-%E2%86%92-1f883d?style=for-the-badge&logo=github&labelColor=197935)](https://github.com/aracelivera/skills-getting-started-with-github-copilot/issues/1)
 
-# Mergington High School Activities API
+# Nubiral High School Activities API
 
 A super simple FastAPI application that allows students to view and sign up for extracurricular activities.
 
@@ -42,7 +42,7 @@ A super simple FastAPI application that allows students to view and sign up for 
 | Method | Endpoint                                                          | Description                                                         |
 | ------ | ----------------------------------------------------------------- | ------------------------------------------------------------------- |
 | GET    | `/activities`                                                     | Get all activities with their details and current participant count |
-| POST   | `/activities/{activity_name}/signup?email=student@mergington.edu` | Sign up for an activity                                             |
+| POST   | `/activities/{activity_name}/signup?email=student@nubiral.edu` | Sign up for an activity                                             |
 
 ## Data Model
 
