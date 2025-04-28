@@ -3,7 +3,7 @@
 
 En la presente demo, utilizaremos GitHub Copilot como asistente principal en la creación de un pipeline de CI/CD con GitHub Actions. Incluye las etapas de build, test y deploy de una aplicación Python-FastApi en Azure App Service. 
 ## 📌 Objetivos
-<img src="https://private-user-images.githubusercontent.com/37269996/422481316-4d22496d-850b-4785-aafe-11cba03cd5f2.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDU4MDUyMzIsIm5iZiI6MTc0NTgwNDkzMiwicGF0aCI6Ii8zNzI2OTk5Ni80MjI0ODEzMTYtNGQyMjQ5NmQtODUwYi00Nzg1LWFhZmUtMTFjYmEwM2NkNWYyLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA0MjglMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNDI4VDAxNDg1MlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWY1NzZlOGJhYWFhMGQxNmVmYzZhNTVlNWVjMmM1NDVlYmQ2ODg1NDBlNmFjZGE1OTA5NGJkNjM0NzJlNjAzNmQmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.v-H5sC0Xd4PoAqxf9QDzuzK8ZM5bXliDw5z2Uv2s6Jc" align="right" height="200px" />
+<img src="assets/copilot.png" align="right" height="200px" />
 
 - Usar GitHub Copilot para generar un workflow completo con GitHub Actions.
 - Explorar las funcionalidades de GitHub Copilot en distintos entornos: IDE, línea de comandos y GitHub Web.
@@ -166,3 +166,22 @@ Ahora que tenemos el workflow de build creado, vamos a probarlo.
    ![Copilot Chat](assets/build-error-2.png)
 9. En la documentación de la acción, podemos ver que la versión más reciente es `v4`. 
 10. Actualizamos la acción con esta nueva versión y triggereamos nuevamente el workflow.
+11. Regresamos a la pestaña **Actions** en GitHub y verificamos que el job de build se haya ejecutado correctamente.
+
+
+      ![Copilot Chat](assets/buil-error-3.png)
+
+      ![Copilot Chat](assets/build-ok-4.png)
+
+##  Paso 5: Crear un job de deploy
+
+1. Abre el archuvo cicd.yml.
+2. Posiciona el cursor en la última línea del archivo y presiona `Ctrl + I` (windows) o `Cmd + I` (mac) para abrir el **Copilot's Inline Chat**.
+3. Escribe el siguiente mensaje para pedirle a Copilot que te ayude a crear un job de deploy:
+
+   ```markdown
+   Create a job to deploy the application to Azure App Service using the Azure Web Apps Deploy action. Don't forget download artifact from the previus job. Use a publish profile as authentication secret.
+   ```
+
+
+      ![Copilot Chat](assets/deploy-1.png)
